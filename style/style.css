@@ -1,6 +1,6 @@
 body{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -13,7 +13,54 @@ body{
     height: 90px;
     margin: 5px;
     background-color: rgb(125,125,125);
+    color: rgb(125,125,125);
     border-radius: 8px;
+    text-align: center;
+    font-family: Verdana;
+    font-size: 25px;
+}
+
+.orizzontal_align{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/*.tb_arrow{
+    width: 375px;
+    height: 50px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    background-color: rgb(125,125,125);
+    text-align: center;
+    font-family: Verdana;
+    font-size: 25px;
+}
+
+.lr_arrow{
+    width: 50px;
+    height: 375px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    background-color: rgb(125,125,125);
+    text-align: center;
+    font-family: Verdana;
+    font-size: 25px;
+}*/
+
+.arrow{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    background-color: rgb(125,125,125);
     text-align: center;
     font-family: Verdana;
     font-size: 25px;
@@ -33,4 +80,17 @@ body{
 
 #num_2{
     background-color: rgb(220, 210, 185);
+    color: rgb(0,0,0);
+}
+
+#num_4{
+    background-color: rgb(232, 215, 155);
+}
+
+#num_8{
+    background-color: rgb(240, 197, 160);
+}
+
+#num_16{
+    background-color: rgb(248, 141, 141);
 }
