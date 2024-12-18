@@ -49,12 +49,12 @@ function move(){
         for (let y=i; y> i-4; y--){
             
 
-            if(row_content[count]!=0){
-                document.querySelector(`[data-number='${i}']`).innerHTML = row_content[count];
-                document.querySelector(`[data-number='${i}']`).setAttribute(`id`,`num_${row_content[count]}`);
+            if(row_content[count]!=0 && !isNaN(row_content[count])){
+                document.querySelector(`[data-number='${y}']`).innerHTML = row_content[count];
+                document.querySelector(`[data-number='${y}']`).setAttribute(`id`,`num_${row_content[count]}`);
             } else {
-                document.querySelector(`[data-number='${i}']`).innerHTML = 0;
-                document.querySelector(`[data-number='${i}']`).setAttribute(`id`,``);
+                document.querySelector(`[data-number='${y}']`).innerHTML = 0;
+                document.querySelector(`[data-number='${y}']`).setAttribute(`id`,``);
             }
 
             count++

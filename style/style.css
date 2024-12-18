@@ -85,12 +85,15 @@ body{
 
 #num_4{
     background-color: rgb(232, 215, 155);
+    color: rgb(0,0,0);
 }
 
 #num_8{
     background-color: rgb(240, 197, 160);
+    color: rgb(0,0,0);
 }
 
 #num_16{
     background-color: rgb(248, 141, 141);
+    color: rgb(0,0,0);
 }
