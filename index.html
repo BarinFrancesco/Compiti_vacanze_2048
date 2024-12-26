@@ -8,7 +8,7 @@
     <script src="script/script.js"></script>
 </head>
 <body>
-
+    <h1>2048</h1>
     <div id="main_container">  
         <div class="game_piece" data-number="1">0</div>   <div class="game_piece" data-number="2">0</div>   <div class="game_piece" data-number="3">0</div>   <div class="game_piece" data-number="4">0</div>
         <div class="game_piece" data-number="5">0</div>   <div class="game_piece" data-number="6">0</div>   <div class="game_piece" data-number="7">0</div>   <div class="game_piece" data-number="8">0</div>
@@ -16,9 +16,9 @@
         <div class="game_piece" data-number="13">0</div>   <div class="game_piece" data-number="14">0</div>   <div class="game_piece" data-number="15">0</div>   <div class="game_piece" data-number="16">0</div>                   
     </div>
 
-    <button class="arrow">▲</button>
+    <button class="arrow" onclick="move_t()">▲</button>
     <div class="orizzontal_align">
-    <button class="arrow" onclick="move_l()">◄</button>  <button class="arrow">▼</button>  <button class="arrow" onclick="move_r()">►</button>
+    <button class="arrow" onclick="move_l()">◄</button>  <button class="arrow" onclick="move_b()">▼</button>  <button class="arrow" onclick="move_r()">►</button>
     </div>
 </body>
 </html>

@@ -34,7 +34,7 @@ function new_number(){
     selected_element.innerHTML = "2";
 }
 
-
+//funzione per muovere a destra
 function move_r(){
 
 
@@ -60,10 +60,10 @@ function move_r(){
     new_number();
 }
 
-
+//funzione per muovere a sinistra
 function move_l(){
 
-    for ( i = 1; i<14; i+=4){
+    for ( i = 1; i<17; i+=4){
 
         let row_content = transformation("left");
         let count = 0;
@@ -85,32 +85,99 @@ function move_l(){
     new_number();
 }
 
+//funzione per muovere in alto
+function move_t(){
+    
 
+    for ( i=1; i<5; i++){
+
+        let row_content = transformation("top");
+        let count = 0;
+
+
+        for (let y = i; y<17; y+=4){
+
+            if(row_content[count]!=0 && !isNaN(row_content[count])){
+                document.querySelector(`[data-number='${y}']`).innerHTML = row_content[count];
+                document.querySelector(`[data-number='${y}']`).setAttribute(`id`,`num_${row_content[count]}`);
+            } else {
+                document.querySelector(`[data-number='${y}']`).innerHTML = 0;
+                document.querySelector(`[data-number='${y}']`).setAttribute(`id`,``);
+            }
+
+            count++
+        }
+
+    }
+    new_number();
+}
+
+//funzione per muovere in basso
+function move_b(){
+
+    for ( i=13; i<17; i++){
+
+        let row_content = transformation("bottom");
+        let count = 0;
+
+
+        for (let y = i; y > i-13; y-=4){
+
+            if(row_content[count]!=0 && !isNaN(row_content[count])){
+                document.querySelector(`[data-number='${y}']`).innerHTML = row_content[count];
+                document.querySelector(`[data-number='${y}']`).setAttribute(`id`,`num_${row_content[count]}`);
+            } else {
+                document.querySelector(`[data-number='${y}']`).innerHTML = 0;
+                document.querySelector(`[data-number='${y}']`).setAttribute(`id`,``);
+            }
+
+            count++
+        }
+
+    }
+    new_number();
+}
+
+//funzione per riempire e manipolare i numeri nell'array;
 function transformation(x){
     let row_content = [];
 
-    if(x=="right") {
 
-        for (let j = i; j > i-4; j--){
-            let cell = parseInt(document.querySelector(`[data-number='${j}']`).innerHTML);
-            row_content.push(cell);
-        }
+    switch (x){
 
-    } else{
+        case "right":
 
-        for (let j = i; j < i+4; j++){
-            let cell = parseInt(document.querySelector(`[data-number='${j}']`).innerHTML);
-            row_content.push(cell);
-        }
+            for (let j = i; j > i-4; j--){
+                let cell = parseInt(document.querySelector(`[data-number='${j}']`).innerHTML);
+                row_content.push(cell);
+            }
+    
+            break;
+        
+        case "left":
+            for (let j = i; j < i+4; j++){
+                let cell = parseInt(document.querySelector(`[data-number='${j}']`).innerHTML);
+                row_content.push(cell);
+            }
+            break;
 
+        case "top":
+            for (let j = i; j < 17; j+=4){
+                let cell = parseInt(document.querySelector(`[data-number='${j}']`).innerHTML);
+                row_content.push(cell);
+            }
+            break;
+        
+        default:
+            for (let j = i; j > i-13; j-=4){
+                let cell = parseInt(document.querySelector(`[data-number='${j}']`).innerHTML);
+                row_content.push(cell);
+            }
+            break;
     }
 
     row_content = row_content.filter(item => item !== 0);
 
-        console.log("array riga "+i);
-        console.log( row_content);
-
-
         if( row_content[0] == row_content[1] || row_content[1] == row_content[2] || row_content[2] == row_content[3] ){
 
             for (let i=0; i<3; i++){
@@ -122,60 +189,6 @@ function transformation(x){
         }
 
         row_content = row_content.filter(item => item !== 0);
-
-        console.log("array finito riga "+i);
-        console.log( row_content);
 
         return row_content;
 }
-
-//inverti i 2 for iniziali per le colonne
-        
-/*
-        for (let j = i; j > i-4; j--){
-            let cell = parseInt(document.querySelector(`[data-number='${j}']`).innerHTML);
-            row_content.push(cell);
-        }
-
-        row_content = row_content.filter(item => item !== 0);
-
-        console.log("array riga "+i);
-        console.log( row_content);
-
-
-        if( row_content[0] == row_content[1] || row_content[1] == row_content[2] || row_content[2] == row_content[3] ){
-
-            for (let i=0; i<3; i++){
-                if(row_content[i]==row_content[i+1]){
-                    row_content[i]= row_content[i]*2;
-                    row_content[i+1]=0;
-                } 
-            }
-        }
-
-        row_content = row_content.filter(item => item !== 0);
-
-
-
-        for (let j = i; j < i+4; j++){
-            let cell = parseInt(document.querySelector(`[data-number='${j}']`).innerHTML);
-            row_content.push(cell);
-        }
-
-        row_content = row_content.filter(item => item !== 0);
-
-        console.log("array riga "+i);
-        console.log( row_content);
-
-
-        if( row_content[0] == row_content[1] || row_content[1] == row_content[2] || row_content[2] == row_content[3] ){
-
-            for (let i=0; i<3; i++){
-                if(row_content[i]==row_content[i+1]){
-                    row_content[i]= row_content[i]*2;
-                    row_content[i+1]=0;
-                } 
-            }
-        }
-
-        row_content = row_content.filter(item => item !== 0);*/

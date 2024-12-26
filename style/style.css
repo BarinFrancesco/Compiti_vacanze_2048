@@ -5,6 +5,13 @@ body{
     align-items: center;
 }
 
+H1{
+    font-family: verdana;
+    font-size: 50px;
+    color: rgb(65,65,65);
+    margin: 5px;
+}
+
 .game_piece{
     display: flex;
     flex-direction: column;
@@ -26,32 +33,6 @@ body{
     justify-content: center;
     align-items: center;
 }
-
-/*.tb_arrow{
-    width: 375px;
-    height: 50px;
-    margin: 10px;
-    border: none;
-    border-radius: 8px;
-    padding: 5px;
-    background-color: rgb(125,125,125);
-    text-align: center;
-    font-family: Verdana;
-    font-size: 25px;
-}
-
-.lr_arrow{
-    width: 50px;
-    height: 375px;
-    margin: 10px;
-    border: none;
-    border-radius: 8px;
-    padding: 5px;
-    background-color: rgb(125,125,125);
-    text-align: center;
-    font-family: Verdana;
-    font-size: 25px;
-}*/
 
 .arrow{
     width: 50px;
@@ -97,3 +78,20 @@ body{
     background-color: rgb(248, 141, 141);
     color: rgb(0,0,0);
 }
+#num_32{
+    background-color: rgb(235, 96, 96);
+    color: rgb(0,0,0);
+}
+#num_64{
+    background-color: rgb(193, 81, 81);
+    color: rgb(0,0,0);
+}
+#num_128{
+    background-color: rgb(247, 200, 118);
+    color: rgb(0,0,0);
+}
+#num_256{
+    background-color: rgb(242, 193, 80);
+    color: rgb(0,0,0);
+}
+
