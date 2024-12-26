@@ -24,14 +24,21 @@ function new_number(){
 
     let x = Math.floor(Math.random()*16)+1;
     let selected_element = document.querySelector(`[data-number='${x}']`);
+    let val = Math.random();
 
     while (selected_element.innerHTML != 0){
         x = Math.floor(Math.random()*16)+1;
         selected_element = document.querySelector(`[data-number='${x}']`);
     }
 
-    selected_element.setAttribute("id","num_2");
-    selected_element.innerHTML = "2";
+    if ( val < 0.75){
+        selected_element.setAttribute("id","num_2");
+        selected_element.innerHTML = "2";
+    } else {
+        selected_element.setAttribute("id","num_4");
+        selected_element.innerHTML = "4";
+    }
+
 }
 
 //funzione per muovere a destra
