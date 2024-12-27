@@ -1,4 +1,5 @@
 let i=0;
+let punteggio = 0;
 
 window.onload = function(){
     let x = Math.floor(Math.random()*16)+1;
@@ -31,14 +32,13 @@ function new_number(){
         selected_element = document.querySelector(`[data-number='${x}']`);
     }
 
-    if ( val < 0.75){
+    if ( val < 0.80){
         selected_element.setAttribute("id","num_2");
         selected_element.innerHTML = "2";
     } else {
         selected_element.setAttribute("id","num_4");
         selected_element.innerHTML = "4";
     }
-
 }
 
 //funzione per muovere a destra
@@ -184,13 +184,14 @@ function transformation(x){
     }
 
     row_content = row_content.filter(item => item !== 0);
-
         if( row_content[0] == row_content[1] || row_content[1] == row_content[2] || row_content[2] == row_content[3] ){
 
             for (let i=0; i<3; i++){
-                if(row_content[i]==row_content[i+1]){
-                    row_content[i]= row_content[i]*2;
-                    row_content[i+1]=0;
+                if(row_content[i] == row_content[i+1] &&  !isNaN(row_content[i])){
+                    row_content[i] = row_content[i]*2;
+                    row_content[i+1] = 0;
+                    punteggio += row_content[i];
+                    document.getElementById("points").innerHTML = `${punteggio}`;
                 } 
             }
         }

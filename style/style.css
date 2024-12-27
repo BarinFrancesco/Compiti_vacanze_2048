@@ -3,13 +3,19 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: verdana;
 }
 
 H1{
-    font-family: verdana;
     font-size: 50px;
     color: rgb(65,65,65);
     margin: 5px;
+}
+
+p{
+    margin: 2px ;
+    color: rgb(65,65,65);
+    font-size: 15px;
 }
 
 .game_piece{
@@ -95,3 +101,14 @@ H1{
     color: rgb(0,0,0);
 }
 
+#score{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 105px;
+    background-color: rgb(185,185,185);
+    border-radius: 10px;
+    margin: 5px;
+}
