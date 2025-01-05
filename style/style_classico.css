@@ -1,0 +1,170 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: verdana;
+}
+
+H1{
+    font-size: 50px;
+    color: rgb(65,65,65);
+    margin: 5px;
+}
+
+
+H2{
+    font-size: 40px;
+    color: rgb(34, 34, 34);
+    margin: 5px;
+}
+
+p{
+    margin: 2px ;
+    color: rgb(65,65,65);
+    font-size: 15px;
+}
+
+.game_piece{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    margin: 5px;
+    background-color: rgb(125,125,125);
+    color: rgb(125,125,125);
+    border-radius: 8px;
+    text-align: center;
+    font-family: Verdana;
+    font-size: 25px;
+}
+
+.orizzontal_align{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.vertical_align{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    padding: 5px;
+    background-color: rgb(125,125,125);
+    text-align: center;
+    font-family: Verdana;
+    font-size: 25px;
+}
+
+#main_container{
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    height: 400px;
+    width: 400px;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: rgb(65,65,65);
+    align-items: center;
+}
+
+#user_messages{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 250px;
+    width: 450px;
+    margin: auto;
+    background-color: rgb(125,125,125);
+    border-radius: 25px;
+    z-index: 1;
+}
+
+#restart{
+    background-color: rgb(185,185,185);
+    height: 50px;
+    width: 150px;
+    border: none;
+    border-radius: 10px;
+    transition: 0.5s;
+    box-shadow: none;
+}
+
+#restart:hover{
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 5px rgb(81, 81, 81);
+
+}
+
+#score{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 105px;
+    background-color: rgb(185,185,185);
+    border-radius: 10px;
+    margin: 5px;
+}
+
+#num_2{
+    background-color: rgb(220, 210, 185);
+    color: rgb(0, 0, 0);
+}
+
+#num_4{
+    background-color: rgb(232, 215, 155);
+    color: rgb(0, 0, 0);
+}
+
+#num_8{
+    background-color: rgb(240, 197, 160);
+    color: rgb(0, 0, 0);
+}
+
+#num_16{
+    background-color: rgb(248, 141, 141);
+    color: rgb(0, 0, 0);
+}
+#num_32{
+    background-color: rgb(235, 96, 96);
+    color: rgb(0, 0, 0);
+}
+#num_64{
+    background-color: rgb(193, 81, 81);
+    color: rgb(0, 0, 0);
+}
+#num_128{
+    background-color: rgb(247, 200, 118);
+    color: rgb(0, 0, 0);
+}
+#num_256{
+    background-color: rgb(242, 193, 80);
+    color: rgb(0, 0, 0);
+}
+#num_512{
+    background-color: rgb(215, 174, 40);
+    color: rgb(0, 0, 0);
+}
+#num_1024{
+    background-color: rgb(235, 235, 46);
+    color: rgb(0, 0, 0);
+}
+#num_2048{
+    background-color: rgb(200, 228, 56);
+    color: rgb(0, 0, 0);
+}

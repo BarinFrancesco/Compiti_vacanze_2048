@@ -219,3 +219,17 @@ function transformation(x){
 
         return row_content;
 }
+
+
+function numeri(){
+    document.getElementById("user_messages").style.display = "none";
+    document.getElementById("stylesheet").setAttribute("href","style/style_classico.css");
+}
+
+function immagini(){
+    document.getElementById("user_messages").style.display = "none"
+    document.getElementById("stylesheet").setAttribute("href","style/style_con_immagini.css");
+}
+function reset(){
+document.getElementById("user_messages").style.display = "flex"
+}

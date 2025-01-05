@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2048</title>
-    <link rel="stylesheet" href="style/style.css" id="stylesheet">
+    <link rel="stylesheet" href="style/style_classico.css" id="stylesheet">
     <script src="script/script.js"></script>
 </head>
 <body>
-    <div id="user_messages"><h2 id="win/lose_message">HAI PERSO</h2> <button id="restart">Gioca di nuovo</button> </div>
+    <div id="user_messages"><h2 id="win/lose_message">Come vuoi giocare</h2> <button id="restart" onclick="numeri()">Numeri</button> <button id="restart" onclick="immagini()">Immagini</button> </div>
     <h1>2048</h1>
     <div id="score"><p>PUNTEGGIO</p> <p id="points">0</p></div>
     <div id="main_container">  
@@ -18,9 +18,20 @@
         <div class="game_piece" data-number="13">0</div>   <div class="game_piece" data-number="14">0</div>   <div class="game_piece" data-number="15">0</div>   <div class="game_piece" data-number="16">0</div>                   
     </div>
 
-    <button class="arrow" onclick="move_t()">▲</button>
+<div class="orizzontal_align">
+
+    <div class="vertical_align">
+        <button class="arrow" onclick="move_t()">▲</button>
+
+        <div class="orizzontal_align">
+            <button class="arrow" onclick="move_l()">◄</button>  <button class="arrow" onclick="move_b()">▼</button>  <button class="arrow" onclick="move_r()">►</button> 
+        </div>
+    </div>  
+
     <div class="orizzontal_align">
-    <button class="arrow" onclick="move_l()">◄</button>  <button class="arrow" onclick="move_b()">▼</button>  <button class="arrow" onclick="move_r()">►</button>
+        <button class="arrow" onclick="reset()">R</button> <button class="arrow" onclick="reset()">R</button> <button class="arrow" onclick="reset()">R</button>
     </div>
+</div>
+
 </body>
 </html>
