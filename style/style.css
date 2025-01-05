@@ -12,6 +12,13 @@ H1{
     margin: 5px;
 }
 
+
+H2{
+    font-size: 40px;
+    color: rgb(34, 34, 34);
+    margin: 5px;
+}
+
 p{
     margin: 2px ;
     color: rgb(65,65,65);
@@ -65,40 +72,34 @@ p{
     align-items: center;
 }
 
-#num_2{
-    background-color: rgb(220, 210, 185);
-    color: rgb(0,0,0);
+#user_messages{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 250px;
+    width: 450px;
+    margin: auto;
+    background-color: rgb(125,125,125);
+    border-radius: 25px;
+    z-index: 1;
 }
 
-#num_4{
-    background-color: rgb(232, 215, 155);
-    color: rgb(0,0,0);
+#restart{
+    background-color: rgb(185,185,185);
+    height: 50px;
+    width: 150px;
+    border: none;
+    border-radius: 10px;
+    transition: 0.5s;
+    box-shadow: none;
 }
 
-#num_8{
-    background-color: rgb(240, 197, 160);
-    color: rgb(0,0,0);
-}
+#restart:hover{
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 5px rgb(81, 81, 81);
 
-#num_16{
-    background-color: rgb(248, 141, 141);
-    color: rgb(0,0,0);
-}
-#num_32{
-    background-color: rgb(235, 96, 96);
-    color: rgb(0,0,0);
-}
-#num_64{
-    background-color: rgb(193, 81, 81);
-    color: rgb(0,0,0);
-}
-#num_128{
-    background-color: rgb(247, 200, 118);
-    color: rgb(0,0,0);
-}
-#num_256{
-    background-color: rgb(242, 193, 80);
-    color: rgb(0,0,0);
 }
 
 #score{
@@ -111,4 +112,96 @@ p{
     background-color: rgb(185,185,185);
     border-radius: 10px;
     margin: 5px;
+}
+
+#num_2{
+    background-color: rgb(220, 210, 185);
+    color: rgba(0, 0, 0,0);
+    background-image: url("../img/sfondo_n_2.jpg");
+    background-position: center;
+    background-size: 90px;
+    background-repeat: no-repeat;
+}
+
+#num_4{
+    background-color: rgb(232, 215, 155);
+    color: rgba(0, 0, 0,0);
+    background-image: url("../img/sfondo_n_4.jpg");
+    background-position: center;
+    background-size: 90px;
+    background-repeat: no-repeat;
+}
+
+#num_8{
+    background-color: rgb(240, 197, 160);
+    color: rgba(0, 0, 0,0);
+    background-image: url("../img/sfondo_n_8.jpg");
+    background-position: center;
+    background-size: 90px;
+    background-repeat: no-repeat;
+}
+
+#num_16{
+    background-color: rgb(248, 141, 141);
+    color: rgba(0, 0, 0,0);
+    background-image: url("../img/sfondo_n_16.jpg");
+    background-position: center;
+    background-size: 90px;
+    background-repeat: no-repeat;
+}
+#num_32{
+    background-color: rgb(235, 96, 96);
+    color: rgba(0, 0, 0,0);
+    background-image: url("../img/sfondo_n_32.jpg");
+    background-position: center;
+    background-size: 90px;
+    background-repeat: no-repeat;
+}
+#num_64{
+    background-color: rgb(193, 81, 81);
+    color: rgba(0, 0, 0,0);
+    background-image: url("../img/sfondo_n_64.jpg");
+    background-position: center;
+    background-size: 90px;
+    background-repeat: no-repeat;
+}
+#num_128{
+    background-color: rgb(247, 200, 118);
+    color: rgba(0, 0, 0,0);
+    background-image: url("../img/sfondo_n_128.jpg");
+    background-position: center;
+    background-size: 90px;
+    background-repeat: no-repeat;
+}
+#num_256{
+    background-color: rgb(242, 193, 80);
+    color: rgba(0, 0, 0,0);
+    background-image: url("../img/sfondo_n_256.jpg");
+    background-position: center;
+    background-size: 90px;
+    background-repeat: no-repeat;
+}
+#num_512{
+    background-color: rgb(215, 174, 40);
+    color: rgba(0, 0, 0,0);
+    background-image: url("../img/sfondo_n_512.jpg");
+    background-position: center;
+    background-size: 90px;
+    background-repeat: no-repeat;
+}
+#num_1024{
+    background-color: rgb(235, 235, 46);
+    color: rgba(0, 0, 0,0);
+    background-image: url("../img/sfondo_n_1024.jpg");
+    background-position: center;
+    background-size: 90px;
+    background-repeat: no-repeat;
+}
+#num_2048{
+    background-color: rgb(200, 228, 56);
+    color: rgba(0, 0, 0,0);
+    background-image: url("../img/sfondo_n_2048.jpg");
+    background-position: center;
+    background-size: 90px;
+    background-repeat: no-repeat;
 }
