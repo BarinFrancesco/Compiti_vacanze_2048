@@ -30,19 +30,34 @@ function new_number(){
     let x = Math.floor(Math.random()*16)+1;
     let selected_element = document.querySelector(`[data-number='${x}']`);
     let val = Math.random();
+    let possibile = true;
 
-    while (selected_element.innerHTML != 0){
+    if (document.querySelector(`[data-number='${1}']`).innerHTML == 0 || document.querySelector(`[data-number='${2}']`).innerHTML == 0 || document.querySelector(`[data-number='${3}']`).innerHTML == 0 || document.querySelector(`[data-number='${4}']`).innerHTML == 0 || document.querySelector(`[data-number='${5}']`).innerHTML == 0 || document.querySelector(`[data-number='${6}']`).innerHTML == 0 || document.querySelector(`[data-number='${7}']`).innerHTML == 0 || document.querySelector(`[data-number='${8}']`).innerHTML == 0 || document.querySelector(`[data-number='${9}']`).innerHTML == 0 || document.querySelector(`[data-number='${10}']`).innerHTML == 0 || document.querySelector(`[data-number='${11}']`).innerHTML == 0 || document.querySelector(`[data-number='${12}']`).innerHTML == 0 || document.querySelector(`[data-number='${13}']`).innerHTML == 0 || document.querySelector(`[data-number='${14}']`).innerHTML == 0 || document.querySelector(`[data-number='${15}']`).innerHTML == 0 || document.querySelector(`[data-number='${16}']`).innerHTML == 0 ){
+        possibile = true
+    } else {
+        possibile = false;
+    }
+
+
+    while (selected_element.innerHTML != 0 && possibile == true){
         x = Math.floor(Math.random()*16)+1;
         selected_element = document.querySelector(`[data-number='${x}']`);
     }
 
-    if ( val < 0.80){
-        selected_element.setAttribute("id","num_2");
-        selected_element.innerHTML = "2";
+    if ( possibile == true) {
+
+        if ( val < 0.80){
+            selected_element.setAttribute("id","num_2");
+            selected_element.innerHTML = "2";
+        } else {
+            selected_element.setAttribute("id","num_4");
+            selected_element.innerHTML = "4";
+        }
+
     } else {
-        selected_element.setAttribute("id","num_4");
-        selected_element.innerHTML = "4";
+        return;
     }
+
 }
 
 //funzione per muovere a destra
@@ -69,6 +84,18 @@ function move_r(){
 
     }
     document.getElementById("points").innerHTML = `${punteggio}`;
+    
+    verifica();
+
+    if( win ){
+        document.getElementById("user_messages").style.display = "flex";
+        document.getElementById("win/lose_message").innerHTML = "Hai vinto";
+    } else if( lose ) {
+        document.getElementById("user_messages").style.display = "flex";
+        document.getElementById("win/lose_message").innerHTML = "Hai perso";
+        return;
+    }
+
     new_number();
 }
 
@@ -95,6 +122,18 @@ function move_l(){
 
     }
     document.getElementById("points").innerHTML = `${punteggio}`;
+    
+    verifica();
+
+    if( win ){
+        document.getElementById("user_messages").style.display = "flex";
+        document.getElementById("win/lose_message").innerHTML = "Hai vinto";
+    } else if( lose ) {
+        document.getElementById("user_messages").style.display = "flex";
+        document.getElementById("win/lose_message").innerHTML = "Hai perso";
+        return;
+    }
+
     new_number();
 }
 
@@ -123,6 +162,18 @@ function move_t(){
 
     }
     document.getElementById("points").innerHTML = `${punteggio}`;
+
+    verifica();
+
+    if( win ){
+        document.getElementById("user_messages").style.display = "flex";
+        document.getElementById("win/lose_message").innerHTML = "Hai vinto";
+    } else if( lose ) {
+        document.getElementById("user_messages").style.display = "flex";
+        document.getElementById("win/lose_message").innerHTML = "Hai perso";
+        return;
+    }
+
     new_number();
 }
 
@@ -149,14 +200,20 @@ function move_b(){
         }
   
     }
+
     document.getElementById("points").innerHTML = `${punteggio}`;
+
+    verifica();
+
     if( win ){
         document.getElementById("user_messages").style.display = "flex";
         document.getElementById("win/lose_message").innerHTML = "Hai vinto";
     } else if( lose ) {
         document.getElementById("user_messages").style.display = "flex";
         document.getElementById("win/lose_message").innerHTML = "Hai perso";
+        return;
     }
+
     new_number();
 }
 
@@ -220,6 +277,28 @@ function transformation(x){
         return row_content;
 }
 
+function verifica(){
+    for (let y=1; y<17; y++){
+        let number = parseInt(document.querySelector(`[data-number='${y}']`).innerHTML);
+        current_table.push(number);
+    }
+
+    for (let y=0; y<16; y++){
+
+        if (current_table[y] == last_table[y]){
+            lose = true;
+  
+        } else {
+            lose = false;
+            break;
+        }
+
+    }
+
+    last_table = current_table;
+    current_table = [];
+
+}
 
 function numeri(){
     document.getElementById("user_messages").style.display = "none";
