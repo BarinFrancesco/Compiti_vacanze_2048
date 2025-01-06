@@ -287,7 +287,6 @@ function verifica(){
 
         if (current_table[y] == last_table[y]){
             lose = true;
-  
         } else {
             lose = false;
             break;
@@ -295,6 +294,8 @@ function verifica(){
 
     }
 
+    console.log(current_table)
+    console.log(last_table);
     last_table = current_table;
     current_table = [];
 
