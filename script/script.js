@@ -5,7 +5,7 @@ let lose = false;
 let last_table = [];
 let current_table = [];
 
-window.onload = function(){
+window.onload = function inizio(){
     let x = Math.floor(Math.random()*16)+1;
     let y = Math.floor(Math.random()*16)+1;
 
@@ -87,15 +87,6 @@ function move_r(){
     
     verifica();
 
-    if( win ){
-        document.getElementById("user_messages").style.display = "flex";
-        document.getElementById("win/lose_message").innerHTML = "Hai vinto";
-    } else if( lose ) {
-        document.getElementById("user_messages").style.display = "flex";
-        document.getElementById("win/lose_message").innerHTML = "Hai perso";
-        return;
-    }
-
     new_number();
 }
 
@@ -124,15 +115,6 @@ function move_l(){
     document.getElementById("points").innerHTML = `${punteggio}`;
     
     verifica();
-
-    if( win ){
-        document.getElementById("user_messages").style.display = "flex";
-        document.getElementById("win/lose_message").innerHTML = "Hai vinto";
-    } else if( lose ) {
-        document.getElementById("user_messages").style.display = "flex";
-        document.getElementById("win/lose_message").innerHTML = "Hai perso";
-        return;
-    }
 
     new_number();
 }
@@ -165,15 +147,6 @@ function move_t(){
 
     verifica();
 
-    if( win ){
-        document.getElementById("user_messages").style.display = "flex";
-        document.getElementById("win/lose_message").innerHTML = "Hai vinto";
-    } else if( lose ) {
-        document.getElementById("user_messages").style.display = "flex";
-        document.getElementById("win/lose_message").innerHTML = "Hai perso";
-        return;
-    }
-
     new_number();
 }
 
@@ -204,15 +177,6 @@ function move_b(){
     document.getElementById("points").innerHTML = `${punteggio}`;
 
     verifica();
-
-    if( win ){
-        document.getElementById("user_messages").style.display = "flex";
-        document.getElementById("win/lose_message").innerHTML = "Hai vinto";
-    } else if( lose ) {
-        document.getElementById("user_messages").style.display = "flex";
-        document.getElementById("win/lose_message").innerHTML = "Hai perso";
-        return;
-    }
 
     new_number();
 }
@@ -294,22 +258,62 @@ function verifica(){
 
     }
 
-    console.log(current_table)
-    console.log(last_table);
     last_table = current_table;
     current_table = [];
 
+    if( win ){
+        document.getElementById("user_messages").style.display = "flex";
+        document.getElementById("win/lose_message").innerHTML = "Hai vinto";
+    } else if( lose ) {
+        document.getElementById("user_messages").style.display = "flex";
+        document.getElementById("win/lose_message").innerHTML = "Hai perso";
+        return;
+    }
+
 }
 
+//cambia lo stile per giocare con i numeri
 function numeri(){
     document.getElementById("user_messages").style.display = "none";
     document.getElementById("stylesheet").setAttribute("href","style/style_classico.css");
+    document.getElementById("main_container").style.display = "flex";
+    document.getElementById("keys").style.display = "flex";
 }
-
+//cambia lo stile per giocare con le immagini
 function immagini(){
     document.getElementById("user_messages").style.display = "none"
     document.getElementById("stylesheet").setAttribute("href","style/style_con_immagini.css");
+    document.getElementById("main_container").style.display = "flex";
+    document.getElementById("keys").style.display = "flex";
 }
+
 function reset(){
-document.getElementById("user_messages").style.display = "flex"
+    for (let y=1; y<17; y++){
+        let selected_element = document.querySelector(`[data-number='${y}']`);
+        selected_element.innerHTML = 0;
+        selected_element.setAttribute(`id`,``);
+
+    }
+    new_number();
+    new_number();
+document.getElementById("user_messages").style.display = "flex";
+document.getElementById("main_container").style.display = "none";
+document.getElementById("keys").style.display = "none";
+document.getElementById("cancel").style.backgroundColor = "rgb(125,125,125)";
+document.getElementById("cancel").setAttribute("onclick","cancella_numeri()");
+}
+
+function cancella_numeri(){
+
+    for (let y=1; y<17; y++){
+        let selected_element = document.querySelector(`[data-number='${y}']`);
+
+        if ( selected_element.innerHTML == 2 || selected_element.innerHTML == 4 ){
+            selected_element.innerHTML = 0;
+            selected_element.setAttribute(`id`,``);
+        }
+    }
+
+    document.getElementById("cancel").style.backgroundColor = "rgb(45,45,45)";
+    document.getElementById("cancel").setAttribute("onclick","");
 }
