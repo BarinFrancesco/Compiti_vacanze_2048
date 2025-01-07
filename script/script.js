@@ -1,9 +1,11 @@
 let i=0;
 let punteggio = 0;
+let secondi = 0;
 let win = false;
 let lose = false;
 let last_table = [];
 let current_table = [];
+let intervall = setInterval( time , 1000);
 
 window.onload = function inizio(){
     let x = Math.floor(Math.random()*16)+1;
@@ -22,8 +24,11 @@ window.onload = function inizio(){
     selected_element_2.setAttribute("id","num_2");
     selected_element_2.innerHTML = "2";
 
-}
+    document.getElementById("user_messages").style.display = "flex";
+    document.getElementById("main_container").style.display = "none";
+    document.getElementById("keys").style.display = "none";
 
+}
 
 function new_number(){
 
@@ -115,7 +120,7 @@ function move_l(){
     document.getElementById("points").innerHTML = `${punteggio}`;
     
     verifica();
-
+    
     new_number();
 }
 
@@ -242,6 +247,18 @@ function transformation(x){
 }
 
 function verifica(){
+
+    
+    if( win ){
+        document.getElementById("user_messages").style.display = "flex";
+        document.getElementById("win/lose_message").innerHTML = "Hai vinto";
+    } else if( lose ) {
+        document.getElementById("user_messages").style.display = "flex";
+        document.getElementById("win/lose_message").innerHTML = "Hai perso";
+        reset();
+        return;
+    }
+
     for (let y=1; y<17; y++){
         let number = parseInt(document.querySelector(`[data-number='${y}']`).innerHTML);
         current_table.push(number);
@@ -258,17 +275,10 @@ function verifica(){
 
     }
 
+
     last_table = current_table;
     current_table = [];
 
-    if( win ){
-        document.getElementById("user_messages").style.display = "flex";
-        document.getElementById("win/lose_message").innerHTML = "Hai vinto";
-    } else if( lose ) {
-        document.getElementById("user_messages").style.display = "flex";
-        document.getElementById("win/lose_message").innerHTML = "Hai perso";
-        return;
-    }
 
 }
 
@@ -279,6 +289,7 @@ function numeri(){
     document.getElementById("main_container").style.display = "flex";
     document.getElementById("keys").style.display = "flex";
 }
+
 //cambia lo stile per giocare con le immagini
 function immagini(){
     document.getElementById("user_messages").style.display = "none"
@@ -287,6 +298,7 @@ function immagini(){
     document.getElementById("keys").style.display = "flex";
 }
 
+//resetta il gioco per giocare più volte
 function reset(){
     for (let y=1; y<17; y++){
         let selected_element = document.querySelector(`[data-number='${y}']`);
@@ -294,15 +306,20 @@ function reset(){
         selected_element.setAttribute(`id`,``);
 
     }
+    secondi = 0;
+    clearInterval(intervall);
+
     new_number();
     new_number();
-document.getElementById("user_messages").style.display = "flex";
-document.getElementById("main_container").style.display = "none";
-document.getElementById("keys").style.display = "none";
-document.getElementById("cancel").style.backgroundColor = "rgb(125,125,125)";
-document.getElementById("cancel").setAttribute("onclick","cancella_numeri()");
+    document.getElementById("user_messages").style.display = "flex";
+    document.getElementById("main_container").style.display = "none";
+    document.getElementById("keys").style.display = "none";
+    document.getElementById("cancel").style.backgroundColor = "rgb(125,125,125)";
+    document.getElementById("cancel").setAttribute("onclick","cancella_numeri()");
+    intervall = setInterval( time , 1000);
 }
 
+//pulante speciale utilizzabile una sola volta che cancalla i numeri piccoli 2 o 4
 function cancella_numeri(){
 
     for (let y=1; y<17; y++){
@@ -316,4 +333,16 @@ function cancella_numeri(){
 
     document.getElementById("cancel").style.backgroundColor = "rgb(45,45,45)";
     document.getElementById("cancel").setAttribute("onclick","");
+}
+
+function time(){
+secondi++;
+ 
+if (secondi >= 900){
+    lose = true;
+}
+
+let min = Math.floor(secondi/60);
+let sec = (secondi-min*60)
+document.getElementById("minutes").innerHTML = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
 }
