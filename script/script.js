@@ -317,6 +317,8 @@ function reset(){
     document.getElementById("cancel").style.backgroundColor = "rgb(125,125,125)";
     document.getElementById("cancel").setAttribute("onclick","cancella_numeri()");
     intervall = setInterval( time , 1000);
+    win = false;
+    lose = false;
 }
 
 //pulante speciale utilizzabile una sola volta che cancalla i numeri piccoli 2 o 4
