@@ -250,12 +250,14 @@ function verifica(){
 
     
     if( win ){
+        reset();
         document.getElementById("user_messages").style.display = "flex";
         document.getElementById("win/lose_message").innerHTML = "Hai vinto";
+        return;
     } else if( lose ) {
+        reset();
         document.getElementById("user_messages").style.display = "flex";
         document.getElementById("win/lose_message").innerHTML = "Hai perso";
-        reset();
         return;
     }
 
@@ -304,21 +306,24 @@ function reset(){
         let selected_element = document.querySelector(`[data-number='${y}']`);
         selected_element.innerHTML = 0;
         selected_element.setAttribute(`id`,``);
-
     }
+    punteggio = 0;
+    win = false;
+    lose = false;
     secondi = 0;
+    last_table = [];
+    current_table = [];
     clearInterval(intervall);
 
     new_number();
     new_number();
     document.getElementById("user_messages").style.display = "flex";
+    document.getElementById("win/lose_message").innerHTML = "RICOMINCIAMO"
     document.getElementById("main_container").style.display = "none";
     document.getElementById("keys").style.display = "none";
     document.getElementById("cancel").style.backgroundColor = "rgb(125,125,125)";
     document.getElementById("cancel").setAttribute("onclick","cancella_numeri()");
     intervall = setInterval( time , 1000);
-    win = false;
-    lose = false;
 }
 
 //pulante speciale utilizzabile una sola volta che cancalla i numeri piccoli 2 o 4
