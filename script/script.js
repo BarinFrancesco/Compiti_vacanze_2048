@@ -234,8 +234,7 @@ function transformation(x){
                     punteggio += row_content[i];
                 } 
                 if(row_content[i] == 2048 ){
-                    win == true;
-                    return;
+                    win = true;
                 }
                 
             }
